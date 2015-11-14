@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index</title>
+	<script type="text/javascript" src="{{static_url('js/jquery.min.js')}}"></script>
+	<script type="text/javascript" src="{{static_url('semantic-ui/semantic.js')}}"></script>
+	<script type="text/javascript" src="{{static_url('ckeditor/ckeditor.js')}}"></script>
+	<link rel="stylesheet" href="{{static_url('semantic-ui/semantic.css')}}">
+	<script type="text/javascript">
+		var editor = null;
+		window.onload = function(){
+			editor = CKEDITOR.replace('content');
+			var bt = document.getElementById('bt');
+			var show = document.getElementById("show");
+			bt.onclick = function() {
+				console.log(editor.getData());
+				show.innerHTML = editor.getData();
+			}
+		}
+	</script>
+</head>
+<body style="background-color:#f5f5f5;">
+	<div id="layout" class="ui page" style="width:90%; margin:auto">
+		<div id="topMenu">
+			<div class="ui teal pointing menu">
+				<a class="header item label">
+					<i class="book icon"></i>
+					大成教育集团
+				</a>
+			</div>
+		</div>
+		<div class="ui divider"></div>
+		<div class="ui two column grid">
+			<div class="four wide column">
+				<div class="ui horizontal segment">
+					<div class="sidebar">
+						<div class="sidebarBlock">
+							<div class="label">分类</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="twelve wide column">
+				<div style="width:800px;height:800px;">
+					<textarea name="content"></textarea>
+					<button id="bt">get</button>
+				</div>
+			</div>
+			<div id="show" style="background-color:gray;"></div>
+		</div>
+	</div>
+</body>
+</html>
