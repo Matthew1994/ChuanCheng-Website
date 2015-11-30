@@ -1,53 +1,238 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>index</title>
-	<script type="text/javascript" src="{{static_url('js/jquery.min.js')}}"></script>
-	<script type="text/javascript" src="{{static_url('semantic-ui/semantic.js')}}"></script>
-	<script type="text/javascript" src="{{static_url('ckeditor/ckeditor.js')}}"></script>
-	<link rel="stylesheet" href="{{static_url('semantic-ui/semantic.css')}}">
-	<script type="text/javascript">
-		var editor = null;
-		window.onload = function(){
-			editor = CKEDITOR.replace('content');
-			var bt = document.getElementById('bt');
-			var show = document.getElementById("show");
-			bt.onclick = function() {
-				console.log(editor.getData());
-				show.innerHTML = editor.getData();
-			}
-		}
-	</script>
+    <title>index</title>
+    <script type="text/javascript" src="{{static_url('js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{static_url('semantic-ui/semantic.js')}}"></script>
+    <script type="text/javascript" src="{{static_url('ckeditor/ckeditor.js')}}"></script>
+    <script type="text/javascript" src="{{static_url('js/index.js')}}"></script>
+    <link rel="stylesheet" href="{{static_url('semantic-ui/semantic.css')}}">
 </head>
 <body style="background-color:#f5f5f5;">
-	<div id="layout" class="ui page" style="width:90%; margin:auto">
-		<div id="topMenu">
-			<div class="ui teal pointing menu">
-				<a class="header item label">
-					<i class="book icon"></i>
-					大成教育集团
-				</a>
-			</div>
-		</div>
-		<div class="ui divider"></div>
-		<div class="ui two column grid">
-			<div class="four wide column">
-				<div class="ui horizontal segment">
-					<div class="sidebar">
-						<div class="sidebarBlock">
-							<div class="label">分类</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="twelve wide column">
-				<div style="width:800px;height:800px;">
-					<textarea name="content"></textarea>
-					<button id="bt">get</button>
-				</div>
-			</div>
-			<div id="show" style="background-color:gray;"></div>
-		</div>
-	</div>
+<div id="layoutMain" style="width:80%;margin:auto;">
+    <div id="topMenu">
+        <div class="ui blue large menu">
+            <div class="left menu"><a class="header item home-btn">公司名字
+                <div class="ui red large horizontal label">欢迎</div>
+            </a></div>
+            <div class="right menu"><a class="item home-btn homeMenuItem"><i class="home icon"></i>
+                主页</a>
+                <a class="item profile-btn centerMenuItem"><i class="user icon"></i>
+                    个人中心</a>
+                <a class="item">
+                    <div class="ui right labeled icon negative button logout-btn"><i class="sign out icon"></i>
+                        登出
+                    </div>
+                </a></div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui two column grid">
+        <div class="four wide column">
+            <div class="ui horizontal segment">
+                <div class="sidebar">
+                    <div class="sidebarBlock">
+                        <div class="ui fluid blue button label">个人信息</div>
+                        <div class="ui center aligned basic segment">
+                            <i class="huge icons">
+                                <i class="big center thin loading blue spinner icon"></i>
+                                <i class="user inverted purple  center icon"></i>
+                            </i>
+                            <div>
+                                <a class="ui header profile-btn">管理员</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui sidebarBlock">
+                        <div class="ui fluid blue button label">集团动态</div>
+                        <div class="ui selection list"><a class="item home-btn"><i class="search icon"></i>
+
+                            <div class="content">
+                                <div class="header"> 我要编辑公司动态</div>
+                            </div>
+                        </a>
+                            <a class="item createActivity-btn"><i class="flag icon"></i>
+
+                                <div class="content">
+                                    <div class="header"> 我要发布活动</div>
+                                </div>
+                            </a>
+                            <a class="item changeProfile-btn"><i class="setting icon"></i>
+
+                                <div class="content">
+                                    <div class="header"> 修改个人资料</div>
+                                </div>
+                            </a></div>
+                    </div>
+
+                    <div class="sidebarBlock">
+                        <div class="ui fluid blue button label">集团业务</div>
+                        <div class="ui selection list"><a class="item home-btn"><i class="search icon"></i>
+
+                            <div class="content">
+                                <div class="header"> 传承教育</div>
+                            </div>
+                        </a>
+                            <a class="item createActivity-btn"><i class="flag icon"></i>
+
+                                <div class="content">
+                                    <div class="header"> 水上乐园</div>
+                                </div>
+                            </a>
+                            <a class="item changeProfile-btn"><i class="setting icon"></i>
+
+                                <div class="content">
+                                    <div class="header"> 佳凯气模</div>
+                                </div>
+                            </a></div>
+                    </div>
+
+                    <div class="sidebarBlock">
+                        <div class="ui fluid blue button label">集团简介</div>
+                        <div class="ui selection list">
+                            <a class="item home-btn">
+                                <i class="search icon"></i>
+                                <div class="content">
+                                    <div class="header"> 关于我们</div>
+                                </div>
+                            </a>
+                            <a class="item home-btn">
+                                <i class="sun icon"></i>
+                                <div class="content">
+                                    <div class="header"> 集团文化</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="sidebarBlock">
+                        <div class="ui fluid blue button label">合作加盟</div>
+                        <div class="ui selection list">
+                            <a class="item">
+                                <i class="search icon"></i>
+                                <div class="content">
+                                    <div class="header"> 传成教育加盟</div>
+                                </div>
+                            </a>
+                            <a class="item">
+                                <i class="sun icon"></i>
+                                <div class="content">
+                                    <div class="header"> 水上乐园加盟</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="sidebarBlock">
+                        <div class="ui fluid blue button label">联系我们</div>
+                        <div class="ui selection list">
+                            <a class="item">
+                                <i class="search icon"></i>
+                                <div class="content">
+                                    <div class="header"> 诚聘英才</div>
+                                </div>
+                            </a>
+                            <a class="item">
+                                <i class="sun icon"></i>
+                                <div class="content">
+                                    <div class="header"> 联系方式</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="sidebarBlock">
+                        <div class="ui fluid blue button label">集团简介</div>
+                        <div class="ui selection list">
+                            <div class="item"><i class="food icon"></i>
+
+                                <div class="content">
+                                    <div class="header">餐饮</div>
+                                </div>
+                            </div>
+                            <div class="item"><i class="sun icon"></i>
+
+                                <div class="content">
+                                    <div class="header">运动</div>
+                                </div>
+                            </div>
+                            <div class="item"><i class="book icon"></i>
+
+                                <div class="content">
+                                    <div class="header">学习</div>
+                                </div>
+                            </div>
+                            <div class="item"><i class="film icon"></i>
+
+                                <div class="content">
+                                    <div class="header">电影</div>
+                                </div>
+                            </div>
+                            <div class="item"><i class="shop icon"></i>
+
+                                <div class="content">
+                                    <div class="header">逛街</div>
+                                </div>
+                            </div>
+                            <div class="item"><i class="game icon"></i>
+
+                                <div class="content">
+                                    <div class="header">开黑</div>
+                                </div>
+                            </div>
+                            <div class="item"><i class="tasks icon"></i>
+
+                                <div class="content">
+                                    <div class="header">其他</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="twelve wide column">
+            <div id="editArticleForm">
+                <form name="editArticle" class="createActivity" enctype="multipart/form-data">
+                    <div class="ui horizontal segment">
+                        <div id="mainPageContent">
+                            <div id="pageContentTitle" class="ui black segment">
+                                <h2 class="ui header"><i class="flag icon"></i>
+
+                                    <div class="content">发布活动</div>
+                                    <div class="sub header">约起小伙伴，相与步于中庭。</div>
+                                </h2>
+                            </div>
+                            <div id="pageContentBody">
+                                <div class="ui segment"><a class="ui green ribbon label">温馨提示</a>
+                                    细心填写表单有助于更多小伙伴参与活动哦～
+                                </div>
+                                 <div style="height:800px;">
+                                    <textarea name="content"></textarea>
+                                    <div class="ui vertical right aligned basic segment">
+                                        <div id="preview" class="ui button blue">预览</div>
+                                        <div id="save" class="ui button green">保存</div>
+                                        <div id="cancel" class="ui button red">取消</div>
+                                    </div>
+                                </div>
+                                <div class="ui segment"><a class="ui green ribbon label">温馨提示</a>
+                                    提交之前记得核对活动信息 ^_^
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="previewBox" hidden="true">
+                <div id="backToEdit"  class="ui button gray">返回编辑</div>
+                <div id="preArea"></div>
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="footer">
+        <div class="ui blue center aligned segment"><h3>这是网站尾部</h3></div>
+    </div>
+</div>
 </body>
 </html>

@@ -44,9 +44,10 @@ class DownloadFileHandler(tornado.web.RequestHandler):
         self.set_header ('Content-Type', 'application/octet-stream')
         self.set_header ('Content-Disposition', 'attachment; filename='+filename)
         # 读取的模式需要根据实际情况进行修改
-        with open(filename, 'rb') as f:
+        filepath = os.path.join(os.path.dirname(__file__),'static/UploadImage/1.bmp')
+        with open(filepath, 'rb') as f:
             while True:
-                data = f.read(buf_size)
+                data = f.read()
                 if not data:
                     break
                 self.write(data)
@@ -94,9 +95,9 @@ settings = {
     "debug": True
 }
 
-app=tornado.web.Application([
+app = tornado.web.Application([
     (r'/file',UploadFileHandler),
-    (r'/download/[0-9]+', DownloadFileHandler),
+    (r'/download/([0-9]+)', DownloadFileHandler),
     (r'/', IndexHandler),
     (r'/UploadImages', UploadImageHandler),
     ], **settings)
